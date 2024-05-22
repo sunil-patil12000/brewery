@@ -3,8 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import "./BreweryDetails.css";
-import dontenv from 'dotenv';
-dontenv.config();
+
 
 const BreweryDetails = () => {
     const { id } = useParams();
