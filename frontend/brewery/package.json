@@ -1,4 +1,6 @@
 {
+  "homepage": "https://sunil-patil12000.github.io/brewery",
+
   "name": "brewery",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +9,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build",
+      "start": "react-scripts start",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    
+    
   },
   "dependencies": {
     "axios": "^1.7.1",
