@@ -17,7 +17,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         console.log(password)
         e.preventDefault();
-        const tf= await axios.post("http://localhost:5000/api/users/signup",{
+        const tf= await axios.post("https://brewery-ilyp.onrender.com/api/users/signup",{
             name:name,
             email: email,
             password: password

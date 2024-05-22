@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import "./BreweryDetails.css";
+import dontenv from 'dotenv';
+dontenv.config();
 
 const BreweryDetails = () => {
     const { id } = useParams();
@@ -15,12 +17,12 @@ const BreweryDetails = () => {
 
     useEffect(() => {
         const fetchBrewery = async () => {
-            const response = await axios.get(`http://localhost:5000/api/breweries/${id}`);
+            const response = await axios.get(`https://brewery-ilyp.onrender.com/api/breweries/${id}`);
             setBrewery(response.data);
             console.log(response.data)
         };
         const fetchReviews = async () => {
-            const response = await axios.get(`http://localhost:5000/api/breweries/${id}/reviews`);
+            const response = await axios.get(`https://brewery-ilyp.onrender.com/api/breweries/${id}/reviews`);
             setReviews(response.data);
         };
         fetchBrewery();
@@ -31,7 +33,7 @@ const BreweryDetails = () => {
         const token =sessionStorage.getItem('user')
         e.preventDefault();
        if (token) {
-        await axios.post(`http://localhost:5000/api/breweries/${id}/reviews`, { rating, description }, {
+        await axios.post(`https://brewery-ilyp.onrender.com/api/breweries/${id}/reviews`, { rating, description }, {
             headers: { Authorization: `${token}` }
         });
         
@@ -42,7 +44,7 @@ const BreweryDetails = () => {
        }
         setDescription('');
         setRating(1);
-        const response = await axios.get(`http://localhost:5000/api/breweries/${id}/reviews`);
+        const response = await axios.get(`https://brewery-ilyp.onrender.com/api/breweries/${id}/reviews`);
         setReviews(response.data);
         console.log(response.data)
     };

@@ -15,7 +15,7 @@ const Login = () => {
         // await login({ email, password });
         // navigate('/');
         
-        const user = await axios.post("http://localhost:5000/api/users/login",{
+        const user = await axios.post(`https://brewery-ilyp.onrender.com/api/users/login`,{
             email: email,
             password: password
         })
