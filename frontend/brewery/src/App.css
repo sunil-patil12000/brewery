@@ -1,0 +1,9 @@
+.App {
+  font-family: Arial, sans-serif;
+  width: 98vw;
+  height: 100vh;
+}
+
+h2, h3 {
+  color: #333;
+}

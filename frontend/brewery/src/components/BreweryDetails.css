@@ -1,0 +1,69 @@
+.brewery-details-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.brewery-details-container h2 {
+    margin-top: 0;
+}
+
+.brewery-details-container a {
+    color: #007bff;
+}
+
+.brewery-details-container a:hover {
+    text-decoration: underline;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    margin-bottom: 10px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.review-form h3 {
+    margin-top: 0;
+}
+
+.review-form label {
+    margin-bottom: 10px;
+}
+
+.review-form select,
+.review-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.review-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.review-form button:hover {
+    background-color: #0056b3;
+}
