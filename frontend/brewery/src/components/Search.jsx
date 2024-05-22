@@ -3,29 +3,18 @@ import axios from 'axios';
 import './Search.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-
-
 const Search = () => {
-    const navigate =useNavigate();
+    const navigate = useNavigate();
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [error, setError] = useState(null);
-    // const [user, setUser] = useState(sessionStorage.getItem('user'));
-    const user =sessionStorage.getItem('user');
-    
+    const user = sessionStorage.getItem('user');
+
     useEffect(() => {
-        const search =  () => {
-            if (!user) {
-                navigate('/login')
-        
-                
-            }
-            
+        if (!user) {
+            navigate('/login');
         }
-        search();
-      
-    }, [])
-    
+    }, [user, navigate]);
 
     const handleSearch = async () => {
         try {
@@ -35,7 +24,8 @@ const Search = () => {
         } catch (error) {
             console.error('Error searching for breweries:', error);
             setError('An error occurred while fetching data. Please try again later.');
-            setSearchResults([]); 
+            setSearchResults([]);
+        }
     };
 
     return (
@@ -49,18 +39,18 @@ const Search = () => {
             <button onClick={handleSearch}>Search</button>
             {error && <p className="error-message">{error}</p>}
             <div className="results-container">
-            {searchResults.map(brewery => (
-                <Link key={brewery.id} to={`/brewery/${brewery.id}`} className="brewery-link">
-                    <div className="brewery-card">
-                        <h3>{brewery.name}</h3>
-                        <p>City: {brewery.city}</p>
-                        <p>Type: {brewery.brewery_type}</p>
-                    </div>
-                </Link>
-            ))}
+                {searchResults.map(brewery => (
+                    <Link key={brewery.id} to={`/brewery/${brewery.id}`} className="brewery-link">
+                        <div className="brewery-card">
+                            <h3>{brewery.name}</h3>
+                            <p>City: {brewery.city}</p>
+                            <p>Type: {brewery.brewery_type}</p>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </div>
     );
 };
 
- export default Search;
+export default Search;
